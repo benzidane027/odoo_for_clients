@@ -8,7 +8,7 @@ networks:
     #    - subnet: 100.0.0.0/24
 services:
   odoo:
-    container_name: odoo_16
+    container_name: container_odoo
     image: odoo:16
     user: root
     depends_on:
@@ -31,7 +31,7 @@ services:
         ipv4_address: 100.0.0.20
   db:
     image: postgres:15
-    container_name: db
+    container_name: container_database
     user: root
     restart: always
     environment:
@@ -48,6 +48,7 @@ services:
 
   pgadmin:
     image: dpage/pgadmin4
+    container_name: container_sgbd
     environment:
       - PGADMIN_DEFAULT_EMAIL=solvex@pg.pg
       - PGADMIN_DEFAULT_PASSWORD=admin
