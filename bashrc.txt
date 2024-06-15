@@ -1,0 +1,8 @@
+alias dcl='docker compose logs -f --tail=10 | ccze -A'
+alias dcu='docker compose up | ccze -A'
+alias dcud='docker compose up -d'
+alias dcd='docker compose down'
+alias dcb='docker compose build'
+alias dcp='docker compose pull'
+alias openport='lsof -i -P -n | grep LISTEN'
+alias sizing='du -d 1 -h'
