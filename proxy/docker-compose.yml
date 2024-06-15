@@ -1,0 +1,22 @@
+version: "3"
+networks:
+  app_net:
+    external: true
+    # ipam:
+    #   config:
+    #     - subnet: 100.0.0.0/24
+services:
+  proxy:
+    restart: always
+    container_name: container_proxy
+    image: nginx:alpine      
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      app_net:
+        ipv4_address: 100.0.0.10
+volumes:
+  nginx:

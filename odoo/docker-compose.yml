@@ -1,0 +1,67 @@
+version: "3"
+
+networks:
+  app_net: 
+    external: true
+    # ipam:
+    #  config:
+    #    - subnet: 100.0.0.0/24
+services:
+  odoo:
+    container_name: odoo_16
+    image: odoo:16
+    user: root
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    volumes:
+      - ./odoo_data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - ./extra-addons:/mnt/extra-addons
+      - ./filestore:/root/.local/share/Odoo/filestore/
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo
+      - PGDATA:/var/lib/postgresql/data/pgdata
+    command: -- --dev=all
+    networks:
+      app_net:
+        ipv4_address: 11.0.0.20
+  db:
+    image: postgres:15
+    container_name: db
+    user: root
+    restart: always
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+    volumes:
+       - ./data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      app_net:
+        ipv4_address: 11.0.0.30
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=example@example.ex
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    depends_on:
+      - odoo
+    ports:
+      - "5050:80"
+    networks:
+      app_net:
+        ipv4_address: 11.0.0.40
+
+volumes:
+  data:
+  odoo_data:
+  config:
+  extra-addons:
+  filestore:
