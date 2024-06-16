@@ -5,7 +5,7 @@
 * create vm in proxmox and install proxmox backup
 * fix ip address in router for all servers
 * in proxmox: make container run automatically in startup
-* in vm debian: update system packages and install necessary package(wget,git,ccze)
+* in vm debian: update system packages and install necessary package(wget,git,ccze,zip)
 * in vm debian: setup ssh server
 * in vm debian: install docker
 * in vm debian: clone odoo repo from github
@@ -19,4 +19,4 @@
 * in vm backup: setup schedule job  for auto remove
 * in vm debian: install proxmox-backup-client
 * in vm debian: check if login to backup server get successfully
-* in vm debian: 
+* in vm debian: setup backup script and give it access right
