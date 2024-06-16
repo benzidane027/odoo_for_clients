@@ -11,6 +11,7 @@ services:
     container_name: container_odoo
     image: odoo:16
     user: root
+    restart: always
     depends_on:
       - db
     ports:
@@ -47,8 +48,10 @@ services:
         ipv4_address: 100.0.0.30
 
   pgadmin:
+
     image: dpage/pgadmin4
     container_name: container_sgbd
+    restart: always
     environment:
       - PGADMIN_DEFAULT_EMAIL=solvex@pg.pg
       - PGADMIN_DEFAULT_PASSWORD=admin
