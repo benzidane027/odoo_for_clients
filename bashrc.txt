@@ -6,3 +6,5 @@ alias dcb='docker compose build'
 alias dcp='docker compose pull'
 alias openport='lsof -i -P -n | grep LISTEN'
 alias sizing='du -d 1 -h'
+
+export PBS_PASSWORD='valkiry'

@@ -15,8 +15,9 @@
 * in vm debian: make sure every thing get work fine
 * in vm debian: make docker run automatically on startup
 * in vm backup: link storage
-* in vm backup: create repo for store data
+* in vm backup: create repo for store data named "backup-container"
 * in vm backup: setup schedule job  for auto remove
 * in vm debian: install proxmox-backup-client
 * in vm debian: check if login to backup server get successfully
-* in vm debian: setup backup script and give it access right
+* in vm debian: setup backup_script.sh and give it access right
+* in vm debian: add line >> export PBS_PASSWORD='valkiry' << to .bashrc file (ignore ask for password by server)
