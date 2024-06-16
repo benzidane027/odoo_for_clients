@@ -2,7 +2,7 @@
 
 # Configuration
 CONTAINER_NAME="container_odoo"
-DB_NAME="postgres"
+DB_NAME="Real"
 DB_USER="odoo"
 DB_PASSWORD="odoo"
 BACKUP_DIR="/home/solvex/service.backup"
@@ -17,7 +17,7 @@ mkdir -p "$BACKUP_DIR"
 
 # Dump the PostgreSQL database from the Docker container
 echo "Dumping PostgreSQL database from Docker container..."
-docker exec -e PGPASSWORD="$DB_PASSWORD" "$CONTAINER_NAME" pg_dump -U "$DB_USER" "$DB_NAME" > "$BACKUP_FILE"
+docker exec -e PGPASSWORD="$DB_PASSWORD" "$CONTAINER_NAME" pg_dump -U "$DB_USER" -d "$DB_NAME" > "$BACKUP_FILE"
 
 if [ $? -ne 0 ]; then
   echo "Database dump failed!"

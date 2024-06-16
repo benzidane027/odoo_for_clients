@@ -9,11 +9,13 @@
 ## for create ssl
     * docker-compose run --rm certbot certonly --webroot --webroot-path /var/www/certbot/ --dry-run -d [domain-name]
 ## login/logout proxmox backup server:
-    * roxmox-backup-client login --repository 10.0.0.12:8007
-    * roxmox-backup-client logout --repository 10.0.0.12:8007
+    * proxmox-backup-client login --repository 10.0.0.12:8007
+    * proxmox-backup-client logout --repository 10.0.0.12:8007
 ## backup folder to proxmox backup server
     * proxmox-backup-client backup root.pxar:/home/rooot/Desktop/backuptest --repository 10.0.0.12:backup-container
 ## backup list in proxmox server :
     * proxmox-backup-client snapshot list --repository 10.0.0.12:backup-container
 ## restore file from spesific repo
     * proxmox-backup-client restore host/fedora/2024-06-16T13:28:13Z root.pxar . --repository 10.0.0.12:backup-container
+## restora database postgress:
+    * cat your_dump.sql | docker exec -i your-db-container psql -U odoo -d database

@@ -17,10 +17,9 @@ services:
     ports:
       - "8069:8069"
     volumes:
-      - ./odoo_data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./extra-addons:/mnt/extra-addons
-      - ./filestore:/root/.local/share/Odoo/filestore/
+      - ./filestore:/var/lib/odoo
     environment:
       - HOST=db
       - USER=odoo
