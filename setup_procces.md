@@ -21,3 +21,4 @@
 * in vm debian: check if login to backup server get successfully
 * in vm debian: setup backup_script.sh and give it access right
 * in vm debian: add line >> export PBS_PASSWORD='valkiry' << to .bashrc file (ignore ask for password by server)
+* in vm debian: make script run every day
