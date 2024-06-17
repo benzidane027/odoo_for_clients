@@ -8,3 +8,25 @@ alias openport='lsof -i -P -n | grep LISTEN'
 alias sizing='du -d 1 -h'
 
 export PBS_PASSWORD='valkiry'
+
+to_shell() {
+     container_name="$1"
+     database="$2"
+     docker exec -it $container_name bash -c "odoo shell --database=$database --db_user=odoo  --db_password=odoo --db_host=db"
+    # to access shell of odoo
+}
+
+to_update() {
+    container_name="$1"
+    database="$2"
+    module="$3"
+     docker exec -it $container_name bash -c "odoo --database=$database --db_user=odoo  --db_password=odoo --db_host=db -u $module"
+    # to update module from bash
+}
+
+to_scaffold(){
+  container_name="$1"
+  module_name="$2"
+  docker exec -it $container_name bash -c "cd /mnt/extra-addons ; odoo scaffold $module_name . ; chmod -R 777 $module_name"
+  # to create new odoo module
+}
