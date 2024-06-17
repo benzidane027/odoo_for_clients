@@ -16,7 +16,8 @@ DATABASE_BACKUP_FILE="$BACKUP_NEW_DIR/database_${DB_NAME}_${DATE}.sql.gz"
 FILESTORE_BACKUP_FILE="$BACKUP_NEW_DIR/filestore_${DB_NAME}_${DATE}.zip"
 EXTRA_ADDONS_BACKUP_FILE="$BACKUP_NEW_DIR/extra_addons_${DB_NAME}_${DATE}.zip"
 
-PROXMOX_REPO="root@pam@10.0.0.12:8007:backup-container"
+#PROXMOX_REPO="root@pam@10.0.0.12:8007:backup-container"
+PROXMOX_REPO="root@pam@10.0.0.12:8007:usb-store"
 
 # Create backup directory if it doesn't exist
 mkdir -p "$BACKUP_NEW_DIR"
@@ -85,6 +86,6 @@ rm -rf "$BACKUP_NEW_DIR"
 echo "$BACKUP_NEW_DIR remove successful."
 
 cd "$BACKUP_OLD_DIR" || { echo "Directory not found: $BACKUP_OLD_DIR"; exit 1; }
-ls -tp | grep -v '/$' | tail -n +7 | xargs -I {} rm -- {}
+ls -tp | grep -v '/$' | tail -n +16 | xargs -I {} rm -- {} #keep on last 5 backup
 
 
