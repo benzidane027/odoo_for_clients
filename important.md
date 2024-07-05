@@ -22,4 +22,7 @@
 ## unzip database file:
     * bzip2 -d database_SOLVEX.sql.gz
     * mv database_SOLVEX.sql.gz.out database_SOLVEX.sql
+## extract  tar file :
+   * tar -xvf filename.tar -C /path/to/target/directory
+
 
