@@ -19,4 +19,7 @@
     * proxmox-backup-client restore host/fedora/2024-06-16T13:28:13Z root.pxar . --repository 10.0.0.12:backup-container
 ## restora database postgress:
     * cat your_dump.sql | docker exec -i your-db-container psql -U odoo -d database
+## unzip database file:
+    * bzip2 -d database_SOLVEX.sql.gz
+    * mv database_SOLVEX.sql.gz.out database_SOLVEX.sql
 
