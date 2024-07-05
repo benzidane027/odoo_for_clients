@@ -13,8 +13,8 @@ EXTRA_ADDONS_PATH="/home/solvex/service.odoo/extra-addons"
 
 DATE="$(date +%S_%M_%H_%d_%m_%Y)"
 DATABASE_BACKUP_FILE="$BACKUP_NEW_DIR/database_${DB_NAME}_${DATE}.sql.gz"
-FILESTORE_BACKUP_FILE="$BACKUP_NEW_DIR/filestore_${DB_NAME}_${DATE}.zip"
-EXTRA_ADDONS_BACKUP_FILE="$BACKUP_NEW_DIR/extra_addons_${DB_NAME}_${DATE}.zip"
+FILESTORE_BACKUP_FILE="$BACKUP_NEW_DIR/filestore_${DB_NAME}_${DATE}.tar"
+EXTRA_ADDONS_BACKUP_FILE="$BACKUP_NEW_DIR/extra_addons_${DB_NAME}_${DATE}.tar"
 
 #PROXMOX_REPO="root@pam@10.0.0.12:8007:backup-container"
 PROXMOX_REPO="root@pam@10.0.0.12:8007:usb-store"
@@ -32,7 +32,8 @@ else
   echo "database dumped successful."
 fi
 
-echo "valkiry0024"| sudo -S zip -r  "$FILESTORE_BACKUP_FILE" "$FILESRORE_PATH/$DB_NAME"
+#echo "valkiry0024"| sudo -S zip -r  "$FILESTORE_BACKUP_FILE" "$FILESRORE_PATH/$DB_NAME" 
+echo "valkiry0024"| sudo -S tar -czf "$FILESTORE_BACKUP_FILE" -C "$FILESRORE_PATH/$DB_NAME"  .
 
 if [ $? -ne 0 ]; then
   echo "filestore failed! to dumped"
@@ -40,7 +41,8 @@ else
   echo "filestore dumped successful."
 fi
 
-echo "valkiry0024"| sudo -S zip -r  "$EXTRA_ADDONS_BACKUP_FILE" "$EXTRA_ADDONS_PATH" 
+#echo "valkiry0024"| sudo -S zip -r  "$EXTRA_ADDONS_BACKUP_FILE" "$EXTRA_ADDONS_PATH" 
+echo "valkiry0024"| sudo -S tar -czf "$EXTRA_ADDONS_BACKUP_FILE" -C "$EXTRA_ADDONS_PATH"   .
 
 if [ $? -ne 0 ]; then
   echo "extra-addons failed! to dumped"
