@@ -7,6 +7,7 @@
 * in proxmox: make container run automatically in startup
 * in vm debian: update system packages and install necessary package(wget,git,ccze,zip)
 * in vm debian: setup ssh server
+* in vm debian  "authorized_keys" file add the key 
 * in vm debian: install docker
 * in vm debian: clone odoo repo from github
 * in vm debian: create docker network
