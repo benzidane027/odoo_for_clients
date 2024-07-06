@@ -26,6 +26,8 @@
    * tar -xvf filename.tar -C /path/to/target/directory
 ## decompres tar.gz
    * tar -xzf /home/user/archive.tar.gz -C /home/user/target_directory
+## load docker image:
+   * docker load -i backup.tar
 
 
 
