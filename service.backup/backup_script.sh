@@ -91,3 +91,5 @@ cd "$BACKUP_OLD_DIR" || { echo "Directory not found: $BACKUP_OLD_DIR"; exit 1; }
 ls -tp | grep -v '/$' | tail -n +16 | xargs -I {} rm -- {} #keep on last 5 backup
 
 
+echo "valkiry0024"| sudo fstrim -va
+
