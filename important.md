@@ -6,8 +6,11 @@
 ## diable gpu for debian:
     * sudo systemctl set-default multi-user.target
     * sudo systemctl isolate multi-user.target
-## for create ssl
+## for create ssl from docker
     * docker-compose run --rm certbot certonly --webroot --webroot-path /var/www/certbot/ --dry-run -d [domain-name]
+## for create ssl
+    * sudo certbot certonly --webroot --webroot-path /your/project/root/public/directory/path  -d example.com
+
 ## login/logout proxmox backup server:
     * proxmox-backup-client login --repository 10.0.0.12:8007
     * proxmox-backup-client logout --repository 10.0.0.12:8007
