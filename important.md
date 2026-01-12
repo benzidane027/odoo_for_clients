@@ -33,4 +33,5 @@
    * docker load -i backup.tar
 
 
-
+## extract and coping contect of ta file in spesific in server 
+ * pv filestore_KAST_12_01_2026.tar | ssh odoodev@192.168.1.71 "tar -xz -C /home/odoodev/service.gsib/filestore/filestore/TEST"
